@@ -1,5 +1,3 @@
-
-import pandas as pd
 import numpy as np
 import neattext.functions as nfx
 import matplotlib.pyplot as plt
