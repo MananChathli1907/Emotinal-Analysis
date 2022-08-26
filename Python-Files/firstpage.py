@@ -1,11 +1,11 @@
 from logging import PlaceHolder
 import streamlit as st
 import pandas as pd
-import numpy as np
 import webbrowser
 import customtest
 import algosummary
 import testsample
+import more
 
 st.markdown("<h1 style='text-align: center; color: lightblue;'>Emotional Analysis Model</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center; color: skyblue;'>Web Application for Emotion Detection via Predictive Modelling</h4>", unsafe_allow_html=True)
@@ -43,28 +43,16 @@ st.write("Emotion analysis is the process of identifying and analyzing the under
         "This has application in feedback analysis as simple comments can indicate whether the user is satisfied or unsatisfied, whether the feedback is ",
         "positive or negative, and should be shown.")
 
-
-
 rad =st.sidebar.radio("Navigation",["Home","Datasets","Evaluation Sample-1","Evaluation Sample-2","Custom Input", "Learn More"])
-
 
 if rad == "Datasets":
     st.markdown("<h1 style='text-align: left; color: white;</h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: left; color: white;'>Train Dataset</h1>", unsafe_allow_html=True)
     df_train= pd.read_csv("Dataset//train.csv")
     algosummary.algosumdisplay(df_train)
-    url = 'C:\\Users\\Acer\\Desktop\\NTCC\\datasetsummary\\train.html';
+    url = 'C:\\Users\\91982\\Desktop\\NTCC_MANAN\\datasetsummary\\train.html';
     if st.button('View Summary Train DataSet'):
         webbrowser.open_new_tab(url)
-
-    # st.write("\n Validation DataSet :")
-    # data = pd.read_csv("Dataset//val.csv")
-    # df = data.sample(50)
-    # df.rename(columns = {'text(string)' : 'Message', 'label' : 'Emotion'}, inplace = True)
-    # st.dataframe(df,width=840,height= 300)
-    # url = 'C:\\Users\\Acer\\Desktop\\NTCC\\datasetsummary\\val.html';
-    # if st.button('View Summary Validation DataSet'):
-    #     webbrowser.open_new_tab(url)
 
     st.markdown("<h1 style='text-align: left; color: white;</h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='text-align: left; color: white;'>Test Sample-1</h1>", unsafe_allow_html=True)
@@ -72,7 +60,7 @@ if rad == "Datasets":
     df = data.sample(50)
     df.rename(columns = {'text(string)' : 'Message', 'label' : 'Emotion'}, inplace = True)
     st.dataframe(df,width=840,height= 300)
-    url = 'C:\\Users\\Acer\\Desktop\\NTCC\\datasetsummary\\test.html';
+    url = 'C:\\Users\\91982\\Desktop\\NTCC_MANAN\\datasetsummary\\test.html';
     if st.button('View Summary Test Sample 1'):
         webbrowser.open_new_tab(url)
     
@@ -82,7 +70,7 @@ if rad == "Datasets":
     df = data.sample(50)
     df.rename(columns = {'text(string)' : 'Message', 'label' : 'Emotion'}, inplace = True)
     st.dataframe(df,width=840,height= 300)
-    url = 'C:\\Users\\Acer\\Desktop\\NTCC\\datasetsummary\\customtest.html';
+    url = 'C:\\Users\\91982\\Desktop\\NTCC_MANAN\\datasetsummary\\test.html';
     if st.button('View Summary Test Sample 2'):
         webbrowser.open_new_tab(url)
     
@@ -96,3 +84,6 @@ if rad == "Evaluation Sample-2":
 
 if rad == "Custom Input":
     customtest.custompredict()
+    
+if rad == "Learn More":
+    more.more()
